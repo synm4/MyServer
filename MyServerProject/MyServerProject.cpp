@@ -1,34 +1,45 @@
 ﻿#include "pch.h"
 #include <iostream>
 #include "CorePch.h"
-
 #include <thread>
+#include <atomic>
+#include <mutex>
+#include <windows.h>
+#include <future>
+#include "ConcurrentQueue.h"
+#include "ConcurrentStack.h"
 
-void HelloThread()
+LockQueue<int32> q; 
+LockStack<int32> s;
+
+void Push()
 {
-	cout << "hello thread" << '\n';
+	while (true)
+	{
+		int32 value = rand() % 100;
+		q.Push(value);
+
+		this_thread::sleep_for(10ms);
+	}
 }
 
-void HelloThread_2(int32 num)
+void Pop()
 {
-	cout << num << '\n';
+	while (true)
+	{
+		int32 data = 0;
+		//q.WaitPop(OUT data);  사용예시.
+		if (q.TryPop(OUT data))
+			cout << data << endl;
+	}
 }
+
 int main(){
-	std::thread t;
-
-	vector<std::thread> v;
-
-	for (int32 i = 0; i < 10; i++)
-	{
-		v.push_back(std::thread(HelloThread_2, i));
-	}
-
-	for (int32 i = 0; i < 10; i++)
-	{
-		if (v[i].joinable())
-			v[i].join();
-	}
-
+	thread t1(Push);
+	thread t2(Pop);
+	thread t3(Pop); // 일부러 push 보다 pop을 의도적으로 많이 수행하여 crash 유도
 	
-	cout << "Hello Main" << '\n';
+	t1.join();
+	t2.join();
+	t3.join();
 }

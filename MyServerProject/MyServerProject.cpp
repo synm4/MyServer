@@ -9,7 +9,7 @@
 #include "ConcurrentQueue.h"
 #include "ConcurrentStack.h"
 
-LockFreeQueue<int32> q;
+LockQueue<int32> q; 
 LockFreeStack<int32> s;
 
 void Push()
@@ -17,7 +17,7 @@ void Push()
 	while (true)
 	{
 		int32 value = rand() % 100;
-		q.Push(value);
+		s.Push(value);
 
 		this_thread::sleep_for(1ms);
 	}
@@ -28,7 +28,7 @@ void Pop()
 	while (true)
 	{
 		//q.WaitPop(OUT data);  사용예시.
-		auto data = q.TryPop();
+		auto data = s.TryPop();
 		if (data != nullptr)
 			cout << (*data) << endl;
 	}

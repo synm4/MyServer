@@ -1,6 +1,7 @@
 C:\Users\synm4\dev\server\Server\ServerCore\CoreGlobal.cpp;C:\Users\synm4\dev\server\Server\ServerCore\x64\Debug\CoreGlobal.obj
 C:\Users\synm4\dev\server\Server\ServerCore\CorePch.cpp;C:\Users\synm4\dev\server\Server\ServerCore\x64\Debug\CorePch.obj
 C:\Users\synm4\dev\server\Server\ServerCore\CoreTLS.cpp;C:\Users\synm4\dev\server\Server\ServerCore\x64\Debug\CoreTLS.obj
+C:\Users\synm4\dev\server\Server\ServerCore\DeadLockProfiler.cpp;C:\Users\synm4\dev\server\Server\ServerCore\x64\Debug\DeadLockProfiler.obj
 C:\Users\synm4\dev\server\Server\ServerCore\Lock.cpp;C:\Users\synm4\dev\server\Server\ServerCore\x64\Debug\Lock.obj
 C:\Users\synm4\dev\server\Server\ServerCore\pch.cpp;C:\Users\synm4\dev\server\Server\ServerCore\x64\Debug\pch.obj
 C:\Users\synm4\dev\server\Server\ServerCore\ThreadManager.cpp;C:\Users\synm4\dev\server\Server\ServerCore\x64\Debug\ThreadManager.obj

@@ -1,8 +1,2 @@
-﻿  pch.cpp
-  CoreGlobal.cpp
-  CorePch.cpp
-  CoreTLS.cpp
-  DeadLockProfiler.cpp
-  Lock.cpp
-  ThreadManager.cpp
+﻿  RefCounting.cpp
   ServerCore.vcxproj -> C:\Users\synm4\dev\server\Server\Libraries\Release\ServerCore.lib

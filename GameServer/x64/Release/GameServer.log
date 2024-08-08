@@ -1,7 +1,7 @@
 ﻿  GameServer.cpp
-  코드를 생성하고 있습니다.
-  0 of 40 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
-  코드를 생성했습니다.
-  GameServer.vcxproj -> C:\Users\synm4\dev\server\Server\Binary\Release\GameServer.exe
+ServerCore.lib(Allocator.obj) : error LNK2038: '_ITERATOR_DEBUG_LEVEL'에 대해 불일치가 검색되었습니다. '2' 값이 '0'(GameServer.obj에 위치) 값과 일치하지 않습니다.
+ServerCore.lib(Allocator.obj) : error LNK2038: 'RuntimeLibrary'에 대해 불일치가 검색되었습니다. 'MTd_StaticDebug' 값이 'MD_DynamicRelease'(GameServer.obj에 위치) 값과 일치하지 않습니다.
+ServerCore.lib(pch.obj) : error LNK2038: '_ITERATOR_DEBUG_LEVEL'에 대해 불일치가 검색되었습니다. '2' 값이 '0'(GameServer.obj에 위치) 값과 일치하지 않습니다.
+ServerCore.lib(pch.obj) : error LNK2038: 'RuntimeLibrary'에 대해 불일치가 검색되었습니다. 'MTd_StaticDebug' 값이 'MD_DynamicRelease'(GameServer.obj에 위치) 값과 일치하지 않습니다.
+LINK : warning LNK4098: 'LIBCMTD' defaultlib가 다른 라이브러리와 충돌합니다. /NODEFAULTLIB:library를 사용하십시오.
+C:\Users\synm4\dev\server\Server\Binary\Release\GameServer.exe : fatal error LNK1319: 4개의 불일치가 검색되었습니다.

@@ -1,2 +1,3 @@
-﻿  RefCounting.cpp
+﻿  Allocator.cpp
+  Memory.cpp
   ServerCore.vcxproj -> C:\Users\synm4\dev\server\Server\Libraries\Release\ServerCore.lib

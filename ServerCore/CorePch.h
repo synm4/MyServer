@@ -16,6 +16,7 @@
 
 #include <Windows.h>
 #include <iostream>
+#include <cstdlib>
 using namespace std;
 
 #include "Lock.h"

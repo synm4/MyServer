@@ -1,4 +1,5 @@
-﻿  Allocator.cpp
+﻿  pch.cpp
+  Allocator.cpp
   CoreGlobal.cpp
   CorePch.cpp
   CoreTLS.cpp

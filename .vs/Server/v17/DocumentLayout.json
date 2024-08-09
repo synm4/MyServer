@@ -5,6 +5,18 @@
     {
       "AbsoluteMoniker": "D:0:0:{F03FE732-3473-4BBD-94B1-D4916C3B4A15}|GameServer\\GameServer.vcxproj|C:\\Users\\synm4\\dev\\server\\Server\\GameServer\\GameServer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{F03FE732-3473-4BBD-94B1-D4916C3B4A15}|GameServer\\GameServer.vcxproj|solutionrelative:GameServer\\GameServer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAC2B122-7251-4759-8D77-04CD547B7348}|ServerCore\\ServerCore.vcxproj|C:\\Users\\synm4\\dev\\server\\Server\\ServerCore\\Allocator.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{CAC2B122-7251-4759-8D77-04CD547B7348}|ServerCore\\ServerCore.vcxproj|solutionrelative:ServerCore\\Allocator.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAC2B122-7251-4759-8D77-04CD547B7348}|ServerCore\\ServerCore.vcxproj|C:\\Users\\synm4\\dev\\server\\Server\\ServerCore\\Container.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{CAC2B122-7251-4759-8D77-04CD547B7348}|ServerCore\\ServerCore.vcxproj|solutionrelative:ServerCore\\Container.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAC2B122-7251-4759-8D77-04CD547B7348}|ServerCore\\ServerCore.vcxproj|C:\\Users\\synm4\\dev\\server\\Server\\ServerCore\\CorePch.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{CAC2B122-7251-4759-8D77-04CD547B7348}|ServerCore\\ServerCore.vcxproj|solutionrelative:ServerCore\\CorePch.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Bookmark",
@@ -38,13 +50,52 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CorePch.h",
+              "DocumentMoniker": "C:\\Users\\synm4\\dev\\server\\Server\\ServerCore\\CorePch.h",
+              "RelativeDocumentMoniker": "ServerCore\\CorePch.h",
+              "ToolTip": "C:\\Users\\synm4\\dev\\server\\Server\\ServerCore\\CorePch.h",
+              "RelativeToolTip": "ServerCore\\CorePch.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-08-09T11:01:00.665Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Container.h",
+              "DocumentMoniker": "C:\\Users\\synm4\\dev\\server\\Server\\ServerCore\\Container.h",
+              "RelativeDocumentMoniker": "ServerCore\\Container.h",
+              "ToolTip": "C:\\Users\\synm4\\dev\\server\\Server\\ServerCore\\Container.h",
+              "RelativeToolTip": "ServerCore\\Container.h",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAsAAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-08-09T11:00:43.546Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Allocator.h",
+              "DocumentMoniker": "C:\\Users\\synm4\\dev\\server\\Server\\ServerCore\\Allocator.h",
+              "RelativeDocumentMoniker": "ServerCore\\Allocator.h",
+              "ToolTip": "C:\\Users\\synm4\\dev\\server\\Server\\ServerCore\\Allocator.h",
+              "RelativeToolTip": "ServerCore\\Allocator.h",
+              "ViewState": "AQIAAA0AAAAAAAAAAADwvzAAAAACAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-08-09T10:52:36.977Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
               "Title": "GameServer.cpp",
               "DocumentMoniker": "C:\\Users\\synm4\\dev\\server\\Server\\GameServer\\GameServer.cpp",
               "RelativeDocumentMoniker": "GameServer\\GameServer.cpp",
               "ToolTip": "C:\\Users\\synm4\\dev\\server\\Server\\GameServer\\GameServer.cpp",
               "RelativeToolTip": "GameServer\\GameServer.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAATAAAA",
+              "ViewState": "AQIAABEAAAAAAAAAAAAxwC4AAAAZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-08-09T10:17:39.988Z",
               "EditorCaption": ""

@@ -28,53 +28,22 @@ public:
 		cout << "~Knight()" << endl;
 	}
 
-	/*static void* operator new(size_t size)
-	{
-		cout << "Knight new! " << size << endl;
-		void* ptr = ::malloc(size);
-		return ptr;
-	}
-
-	static void operator delete(void* ptr)
-	{
-		cout << "Knight delete!" << endl;
-		::free(ptr);
-	}*/
-
 	int32 _hp = 100;
 	int32 _mp = 10;
 };
 
-// new operator overloading (Global)
-void* operator new(size_t size)
-{
-	cout << "new! " << size << endl;
-	void* ptr = ::malloc(size);
-	return ptr;
-}
-
-void operator delete(void* ptr)
-{
-	cout << "delete!" << endl;
-	::free(ptr);
-}
-
-void* operator new[](size_t size)
-{
-	cout << "new[]! " << size << endl;
-	void* ptr = ::malloc(size);
-	return ptr;
-}
-
-void operator delete[](void* ptr)
-{
-	cout << "delete![]" << endl;
-	::free(ptr);
-}
-
 int main()
 {
+	// new 와 delete 에서는 무조건 메모리를 날리지않고 힙영역을 유동적으로 관리를함. 
+	// 해제한 메모리 접근시 크래시가 날 수 도있고 안날수도있음.
+	// winapi 인 VirtualAlloc 은 운영체제에게 아예 해당 메모리를 해제해달라고 요청하기때문에 
+	// 해제한 메모리 접근시 바로 크래시가남.
+	
+	// CoreMacro.h 에서 BaseAllocator로 바꿔보면 메모리 오염에대한 크래시를 잡지 못하는것을 알 수 있음.
 	Knight* knight = xnew<Knight>(100);
 
 	xdelete(knight);
+
+	knight->_hp = 100;
+
 }

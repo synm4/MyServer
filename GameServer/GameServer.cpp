@@ -42,12 +42,23 @@ public:
 
 int main()
 {
-	// [                    [   ]]
-	// 원하는 방식의 allocate 방식으로 stl 컨테이너를 사용
-	// Container에 template와 using 으로 정의됨
-	Vector<Knight> v(100);
+	for (int32 i = 0; i < 5; i++)
+	{
+		GThreadManager->Launch([]()
+		{
 
-	Map<int32, Knight> m;
-	m[100] = Knight();
+			while (true)
+			{
+				Vector<Knight> v(10);
+
+				Map<int32, Knight> m;
+				m[100] = Knight();
+
+				this_thread::sleep_for(10ms);
+			}
+		});
+	}
+	
+	GThreadManager->Join();
 
 }

@@ -5,6 +5,7 @@ C:\Users\synm4\dev\server\Server\ServerCore\CoreTLS.cpp;C:\Users\synm4\dev\serve
 C:\Users\synm4\dev\server\Server\ServerCore\DeadLockProfiler.cpp;C:\Users\synm4\dev\server\Server\ServerCore\x64\Debug\DeadLockProfiler.obj
 C:\Users\synm4\dev\server\Server\ServerCore\Lock.cpp;C:\Users\synm4\dev\server\Server\ServerCore\x64\Debug\Lock.obj
 C:\Users\synm4\dev\server\Server\ServerCore\Memory.cpp;C:\Users\synm4\dev\server\Server\ServerCore\x64\Debug\Memory.obj
+C:\Users\synm4\dev\server\Server\ServerCore\MemoryPool.cpp;C:\Users\synm4\dev\server\Server\ServerCore\x64\Debug\MemoryPool.obj
 C:\Users\synm4\dev\server\Server\ServerCore\pch.cpp;C:\Users\synm4\dev\server\Server\ServerCore\x64\Debug\pch.obj
 C:\Users\synm4\dev\server\Server\ServerCore\RefCounting.cpp;C:\Users\synm4\dev\server\Server\ServerCore\x64\Debug\RefCounting.obj
 C:\Users\synm4\dev\server\Server\ServerCore\ThreadManager.cpp;C:\Users\synm4\dev\server\Server\ServerCore\x64\Debug\ThreadManager.obj

@@ -1,0 +1,2 @@
+GameServer/x64/Debug/GameServer.pch filter=lfs diff=lfs merge=lfs -text
+ServerCore/x64/Debug/ServerCore.pch filter=lfs diff=lfs merge=lfs -text

@@ -10,55 +10,48 @@
 #include "RefCounting.h"
 #include "Memory.h"
 #include "Allocator.h"
+#include "LockFreeStack.h"
 
-class Player
+class Data // : public SlistEntry
 {
 public:
-	Player() {}
-	virtual ~Player() {}
+	SListEntry _entry;
+
+	int32 _hp;
+	int32 _mp;
 };
 
-class Knight : public Player
+void InitializeHead(SListHeader* header)
 {
-public:
-	Knight()
-	{
-		cout << "Knight()" << endl;
-	}
+	header->next = nullptr;
+}
 
-	Knight(int32 hp) : _hp(hp)
-	{
-		cout << "Knight(hp)" << endl;
-	}
+void PushEntrySList(SListHeader* header, SListEntry* entry)
+{
+	entry->next = header->next;
+	header->next = entry;
+}
 
-	~Knight()
-	{
-		cout << "~Knight()" << endl;
-	}
+SListEntry* PopEntrySList(SListHeader* header)
+{
+	SListEntry* first = header->next;
 
-	int32 _hp = 100;
-	int32 _mp = 10;
-};
+	if (first != nullptr)
+		header->next = first->next;
+
+	return first;
+}
 
 int main()
 {
-	for (int32 i = 0; i < 5; i++)
-	{
-		GThreadManager->Launch([]()
-		{
+	SListHeader header;
+	InitializeHead(&header);
 
-			while (true)
-			{
-				Vector<Knight> v(10);
+	Data* data = new Data();
+	data->_hp = 10;
+	data->_mp = 20;
+	PushEntrySList(&header, (SListEntry*)data);
 
-				Map<int32, Knight> m;
-				m[100] = Knight();
-
-				this_thread::sleep_for(10ms);
-			}
-		});
-	}
-	
-	GThreadManager->Join();
+	Data* popData = (Data*)PopEntrySList(&header);
 
 }

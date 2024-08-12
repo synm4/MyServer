@@ -7,40 +7,12 @@
       "RelativeMoniker": "D:0:0:{F03FE732-3473-4BBD-94B1-D4916C3B4A15}|GameServer\\GameServer.vcxproj|solutionrelative:GameServer\\GameServer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CAC2B122-7251-4759-8D77-04CD547B7348}|ServerCore\\ServerCore.vcxproj|C:\\Users\\synm4\\dev\\server\\Server\\ServerCore\\Allocator.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{CAC2B122-7251-4759-8D77-04CD547B7348}|ServerCore\\ServerCore.vcxproj|solutionrelative:ServerCore\\Allocator.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{F03FE732-3473-4BBD-94B1-D4916C3B4A15}|GameServer\\GameServer.vcxproj|C:\\Users\\synm4\\dev\\server\\Server\\ServerCore\\LockFreeStack.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{F03FE732-3473-4BBD-94B1-D4916C3B4A15}|GameServer\\GameServer.vcxproj|solutionrelative:ServerCore\\LockFreeStack.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CAC2B122-7251-4759-8D77-04CD547B7348}|ServerCore\\ServerCore.vcxproj|C:\\Users\\synm4\\dev\\server\\Server\\ServerCore\\CoreGlobal.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{CAC2B122-7251-4759-8D77-04CD547B7348}|ServerCore\\ServerCore.vcxproj|solutionrelative:ServerCore\\CoreGlobal.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CAC2B122-7251-4759-8D77-04CD547B7348}|ServerCore\\ServerCore.vcxproj|C:\\Users\\synm4\\dev\\server\\Server\\ServerCore\\CoreMacro.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{CAC2B122-7251-4759-8D77-04CD547B7348}|ServerCore\\ServerCore.vcxproj|solutionrelative:ServerCore\\CoreMacro.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CAC2B122-7251-4759-8D77-04CD547B7348}|ServerCore\\ServerCore.vcxproj|C:\\Users\\synm4\\dev\\server\\Server\\ServerCore\\CoreGlobal.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{CAC2B122-7251-4759-8D77-04CD547B7348}|ServerCore\\ServerCore.vcxproj|solutionrelative:ServerCore\\CoreGlobal.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CAC2B122-7251-4759-8D77-04CD547B7348}|ServerCore\\ServerCore.vcxproj|C:\\Users\\synm4\\dev\\server\\Server\\ServerCore\\MemoryPool.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{CAC2B122-7251-4759-8D77-04CD547B7348}|ServerCore\\ServerCore.vcxproj|solutionrelative:ServerCore\\MemoryPool.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CAC2B122-7251-4759-8D77-04CD547B7348}|ServerCore\\ServerCore.vcxproj|C:\\Users\\synm4\\dev\\server\\Server\\ServerCore\\MemoryPool.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{CAC2B122-7251-4759-8D77-04CD547B7348}|ServerCore\\ServerCore.vcxproj|solutionrelative:ServerCore\\MemoryPool.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CAC2B122-7251-4759-8D77-04CD547B7348}|ServerCore\\ServerCore.vcxproj|C:\\Users\\synm4\\dev\\server\\Server\\ServerCore\\Memory.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{CAC2B122-7251-4759-8D77-04CD547B7348}|ServerCore\\ServerCore.vcxproj|solutionrelative:ServerCore\\Memory.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CAC2B122-7251-4759-8D77-04CD547B7348}|ServerCore\\ServerCore.vcxproj|C:\\Users\\synm4\\dev\\server\\Server\\ServerCore\\Memory.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{CAC2B122-7251-4759-8D77-04CD547B7348}|ServerCore\\ServerCore.vcxproj|solutionrelative:ServerCore\\Memory.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CAC2B122-7251-4759-8D77-04CD547B7348}|ServerCore\\ServerCore.vcxproj|C:\\Users\\synm4\\dev\\server\\Server\\ServerCore\\Allocator.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{CAC2B122-7251-4759-8D77-04CD547B7348}|ServerCore\\ServerCore.vcxproj|solutionrelative:ServerCore\\Allocator.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{F03FE732-3473-4BBD-94B1-D4916C3B4A15}|GameServer\\GameServer.vcxproj|C:\\Users\\synm4\\dev\\server\\Server\\ServerCore\\LockFreeStack.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{F03FE732-3473-4BBD-94B1-D4916C3B4A15}|GameServer\\GameServer.vcxproj|solutionrelative:ServerCore\\LockFreeStack.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -60,7 +32,7 @@
               "RelativeDocumentMoniker": "GameServer\\GameServer.cpp",
               "ToolTip": "C:\\Users\\synm4\\dev\\server\\Server\\GameServer\\GameServer.cpp",
               "RelativeToolTip": "GameServer\\GameServer.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAYAAAA",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAABIAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-08-09T10:17:39.988Z",
               "IsPinned": true,
@@ -88,119 +60,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "CoreGlobal.cpp",
-              "DocumentMoniker": "C:\\Users\\synm4\\dev\\server\\Server\\ServerCore\\CoreGlobal.cpp",
-              "RelativeDocumentMoniker": "ServerCore\\CoreGlobal.cpp",
-              "ToolTip": "C:\\Users\\synm4\\dev\\server\\Server\\ServerCore\\CoreGlobal.cpp",
-              "RelativeToolTip": "ServerCore\\CoreGlobal.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAHAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-08-09T13:22:45.252Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "CoreGlobal.h",
-              "DocumentMoniker": "C:\\Users\\synm4\\dev\\server\\Server\\ServerCore\\CoreGlobal.h",
-              "RelativeDocumentMoniker": "ServerCore\\CoreGlobal.h",
-              "ToolTip": "C:\\Users\\synm4\\dev\\server\\Server\\ServerCore\\CoreGlobal.h",
-              "RelativeToolTip": "ServerCore\\CoreGlobal.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-08-09T13:22:20.019Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "CoreMacro.h",
-              "DocumentMoniker": "C:\\Users\\synm4\\dev\\server\\Server\\ServerCore\\CoreMacro.h",
-              "RelativeDocumentMoniker": "ServerCore\\CoreMacro.h",
-              "ToolTip": "C:\\Users\\synm4\\dev\\server\\Server\\ServerCore\\CoreMacro.h",
-              "RelativeToolTip": "ServerCore\\CoreMacro.h",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAUAAAAHAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-08-09T13:15:29.954Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Allocator.cpp",
-              "DocumentMoniker": "C:\\Users\\synm4\\dev\\server\\Server\\ServerCore\\Allocator.cpp",
-              "RelativeDocumentMoniker": "ServerCore\\Allocator.cpp",
-              "ToolTip": "C:\\Users\\synm4\\dev\\server\\Server\\ServerCore\\Allocator.cpp",
-              "RelativeToolTip": "ServerCore\\Allocator.cpp",
-              "ViewState": "AQIAACQAAAAAAAAAAAAAADMAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-08-09T13:12:28.915Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Allocator.h",
-              "DocumentMoniker": "C:\\Users\\synm4\\dev\\server\\Server\\ServerCore\\Allocator.h",
-              "RelativeDocumentMoniker": "ServerCore\\Allocator.h",
-              "ToolTip": "C:\\Users\\synm4\\dev\\server\\Server\\ServerCore\\Allocator.h",
-              "RelativeToolTip": "ServerCore\\Allocator.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAD4AAAACAAAA",
+              "Title": "LockFreeStack.h",
+              "DocumentMoniker": "C:\\Users\\synm4\\dev\\server\\Server\\ServerCore\\LockFreeStack.h",
+              "RelativeDocumentMoniker": "ServerCore\\LockFreeStack.h",
+              "ToolTip": "C:\\Users\\synm4\\dev\\server\\Server\\ServerCore\\LockFreeStack.h",
+              "RelativeToolTip": "ServerCore\\LockFreeStack.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-08-09T13:12:29.414Z",
+              "WhenOpened": "2024-08-12T09:26:20.433Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Memory.cpp",
-              "DocumentMoniker": "C:\\Users\\synm4\\dev\\server\\Server\\ServerCore\\Memory.cpp",
-              "RelativeDocumentMoniker": "ServerCore\\Memory.cpp",
-              "ToolTip": "C:\\Users\\synm4\\dev\\server\\Server\\ServerCore\\Memory.cpp",
-              "RelativeToolTip": "ServerCore\\Memory.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAAAAAA",
+              "DocumentIndex": 2,
+              "Title": "LockFreeStack.cpp",
+              "DocumentMoniker": "C:\\Users\\synm4\\dev\\server\\Server\\ServerCore\\LockFreeStack.cpp",
+              "RelativeDocumentMoniker": "ServerCore\\LockFreeStack.cpp",
+              "ToolTip": "C:\\Users\\synm4\\dev\\server\\Server\\ServerCore\\LockFreeStack.cpp",
+              "RelativeToolTip": "ServerCore\\LockFreeStack.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-08-09T12:52:56.742Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Memory.h",
-              "DocumentMoniker": "C:\\Users\\synm4\\dev\\server\\Server\\ServerCore\\Memory.h",
-              "RelativeDocumentMoniker": "ServerCore\\Memory.h",
-              "ToolTip": "C:\\Users\\synm4\\dev\\server\\Server\\ServerCore\\Memory.h",
-              "RelativeToolTip": "ServerCore\\Memory.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACIAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-08-09T12:42:00.97Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "MemoryPool.h",
-              "DocumentMoniker": "C:\\Users\\synm4\\dev\\server\\Server\\ServerCore\\MemoryPool.h",
-              "RelativeDocumentMoniker": "ServerCore\\MemoryPool.h",
-              "ToolTip": "C:\\Users\\synm4\\dev\\server\\Server\\ServerCore\\MemoryPool.h",
-              "RelativeToolTip": "ServerCore\\MemoryPool.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACsAAAARAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-08-09T12:21:51.481Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "MemoryPool.cpp",
-              "DocumentMoniker": "C:\\Users\\synm4\\dev\\server\\Server\\ServerCore\\MemoryPool.cpp",
-              "RelativeDocumentMoniker": "ServerCore\\MemoryPool.cpp",
-              "ToolTip": "C:\\Users\\synm4\\dev\\server\\Server\\ServerCore\\MemoryPool.cpp",
-              "RelativeToolTip": "ServerCore\\MemoryPool.cpp",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAABQAAAAMAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-08-09T12:22:01.442Z",
+              "WhenOpened": "2024-08-12T09:26:19.759Z",
               "EditorCaption": ""
             }
           ]

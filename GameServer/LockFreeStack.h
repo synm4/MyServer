@@ -19,9 +19,9 @@ void PushEntrySList(SListHeader* header, SListEntry* entry);
 SListEntry* PopEntrySList(SListHeader* header);
 */
 
-// -------------------
-//		2차 시도
-// -------------------
+ //-------------------
+	//	2차 시도
+ //-------------------
 
 //struct SListEntry
 //{

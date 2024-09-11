@@ -34,6 +34,7 @@ void StompAllocator::Release(void* ptr)
 	const int64 address = reinterpret_cast<int64>(ptr);
 	const int64 baseAdress = address - (address % PAGE_SIZE); // 앞에 비어있는공간
 	::VirtualFree(reinterpret_cast<void*>(baseAdress), 0, MEM_RELEASE);
+	
 }
 
 /*-------------------

@@ -1,4 +1,5 @@
-﻿  Allocator.cpp
+﻿  pch.cpp
+  Allocator.cpp
   CoreGlobal.cpp
   CorePch.cpp
   CoreTLS.cpp
@@ -7,5 +8,6 @@
   Memory.cpp
   MemoryPool.cpp
   RefCounting.cpp
+  ThreadManager.cpp
   코드를 생성하고 있습니다...
   ServerCore.vcxproj -> C:\Users\synm4\dev\server\Server\Libraries\Debug\ServerCore.lib

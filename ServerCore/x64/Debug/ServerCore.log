@@ -1,19 +1,2 @@
-﻿  pch.cpp
-  Allocator.cpp
-  CoreGlobal.cpp
-  CorePch.cpp
-  CoreTLS.cpp
-  DeadLockProfiler.cpp
-  IocpCore.cpp
-  IocpEvent.cpp
-  Listener.cpp
-  Lock.cpp
-  Memory.cpp
-  MemoryPool.cpp
-  NetAddress.cpp
-  RefCounting.cpp
-  Session.cpp
-  SocketUtils.cpp
-  ThreadManager.cpp
-  코드를 생성하고 있습니다...
+﻿  Service.cpp
   ServerCore.vcxproj -> C:\Users\synm4\dev\server\Server\Libraries\Debug\ServerCore.lib

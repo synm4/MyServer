@@ -16,9 +16,9 @@ void SocketUtils::Init()
 
 	/* 런타임에 주소 얻어오는 API */
 	SOCKET dummySocket = CreateSocket();
-	ASSERT_CRASH(BindWindowsFuntion(dummySocket, WSAID_CONNECTEX, reinterpret_cast<LPVOID*>(&ConnectEx)));
-	ASSERT_CRASH(BindWindowsFuntion(dummySocket, WSAID_DISCONNECTEX, reinterpret_cast<LPVOID*>(&DisconnectEx)));
-	ASSERT_CRASH(BindWindowsFuntion(dummySocket, WSAID_ACCEPTEX, reinterpret_cast<LPVOID*>(&AcceptEx)));
+	ASSERT_CRASH(BindWindowsFunction(dummySocket, WSAID_CONNECTEX, reinterpret_cast<LPVOID*>(&ConnectEx)));
+	ASSERT_CRASH(BindWindowsFunction(dummySocket, WSAID_DISCONNECTEX, reinterpret_cast<LPVOID*>(&DisconnectEx)));
+	ASSERT_CRASH(BindWindowsFunction(dummySocket, WSAID_ACCEPTEX, reinterpret_cast<LPVOID*>(&AcceptEx)));
 	Close(dummySocket);
 }
 
@@ -27,7 +27,7 @@ void SocketUtils::Clear()
 	::WSACleanup();
 }
 
-bool SocketUtils::BindWindowsFuntion(SOCKET socket, GUID guid, LPVOID* fn)
+bool SocketUtils::BindWindowsFunction(SOCKET socket, GUID guid, LPVOID* fn)
 {
 	DWORD bytes = 0;
 	return SOCKET_ERROR != ::WSAIoctl(socket, SIO_GET_EXTENSION_FUNCTION_POINTER, &guid, sizeof(guid), fn, sizeof(*fn), OUT & bytes, NULL, NULL);
@@ -92,7 +92,7 @@ bool SocketUtils::Listen(SOCKET socket, int32 backlog)
 	return SOCKET_ERROR != ::listen(socket, backlog);
 }
 
-void SocketUtils::Close(SOCKET socket)
+void SocketUtils::Close(SOCKET& socket)
 {
 	if (socket != INVALID_SOCKET)
 		::closesocket(socket);

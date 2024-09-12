@@ -6,12 +6,9 @@
 #include "CoreGlobal.h"
 #include "Container.h"
 
-
-#include <Windows.h>
+#include <windows.h>
 #include <iostream>
-#include <cstdlib>
 using namespace std;
-
 
 #include <winsock2.h>
 #include <mswsock.h>

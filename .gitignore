@@ -1,0 +1,41 @@
+# Visual Studio 관련 파일 무시
+.vs/
+.vscode/
+*.suo
+*.user
+*.vcxproj.user
+*.vcxproj.filters
+
+# 빌드 산출물 무시
+build/
+bin/
+obj/
+Debug/
+Release/
+x64/
+*.exe
+*.dll
+*.lib
+*.obj
+*.ilk
+*.log
+*.idb
+*.sdf
+*.tlog/
+*.lastbuildstate
+*.cache
+*.aps
+*.ncb
+*.unsuccessfulbuild
+
+# 특정 파일 무시
+GameServer/x64/Debug/GameServer.pch
+ServerCore/x64/Debug/ServerCore.pch
+
+# 기타 무시할 파일들
+.DS_Store
+Thumbs.db
+*.xcodeproj/
+*.xcworkspace/
+*.xccheckout/
+*.xcodeproj/project.xcworkspace/

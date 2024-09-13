@@ -4,7 +4,9 @@
 #include "Memory.h"
 #include "DeadLockProfiler.h"
 #include "SocketUtils.h"
+#include "SendBuffer.h"
 
+SendBufferManager* GSendBufferManager;
 ThreadManager*		GThreadManager = nullptr;
 Memory*				GMemory = nullptr;
 DeadLockProfiler*	GDeadLockProfiler = nullptr;
@@ -16,6 +18,7 @@ public:
 	{
 		GThreadManager = new ThreadManager();
 		GMemory = new Memory();
+		GSendBufferManager = new SendBufferManager();
 		GDeadLockProfiler = new DeadLockProfiler();
 		SocketUtils::Init();
 	}
@@ -24,6 +27,7 @@ public:
 	{
 		delete GThreadManager;
 		delete GMemory;
+		delete GSendBufferManager;
 		delete GDeadLockProfiler;
 		SocketUtils::Clear();
 	}

@@ -21,7 +21,6 @@ void SendBuffer::Close(uint32 writeSize)
 	ASSERT_CRASH(_allocSize >= writeSize);
 	_writeSize = writeSize;
 	_owner->Close(writeSize);
-
 }
 
 
@@ -113,6 +112,7 @@ void SendBufferManager::Push(SendBufferChunkRef buffer)
 
 void SendBufferManager::PushGlobal(SendBufferChunk* buffer)
 {
+	cout << "PushGlobal SendBufferChunk" << '\n';
 	GSendBufferManager->Push(SendBufferChunkRef(buffer, PushGlobal));
 }
 

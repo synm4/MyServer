@@ -1,29 +1,49 @@
 #include "pch.h"
 #include "Memory.h"
 #include "MemoryPool.h"
-/*------------
+
+/*-------------
 	Memory
--------------*/
+---------------*/
 
 Memory::Memory()
 {
-	int sizeSteps[] = { 32, 128, 256 };
-	int maxSizes[] = { 1024, 2048, 4096 };
-	int32 tableIndex = 0;
 	int32 size = 0;
+	int32 tableIndex = 0;
 
-	for (int i = 0; i < 3; ++i)
+	for (size = 32; size <= 1024; size += 32)
 	{
-		for (; size <= maxSizes[i]; size += sizeSteps[i])
-		{
-			MemoryPool* pool = new MemoryPool(size);
-			_pools.push_back(pool);
+		MemoryPool* pool = new MemoryPool(size);
+		_pools.push_back(pool);
 
-			while (tableIndex <= size)
-			{
-				_poolTable[tableIndex] = pool;
-				tableIndex++;
-			}
+		while (tableIndex <= size)
+		{
+			_poolTable[tableIndex] = pool;
+			tableIndex++;
+		}
+	}
+
+	for (; size <= 2048; size += 128)
+	{
+		MemoryPool* pool = new MemoryPool(size);
+		_pools.push_back(pool);
+
+		while (tableIndex <= size)
+		{
+			_poolTable[tableIndex] = pool;
+			tableIndex++;
+		}
+	}
+
+	for (; size <= 4096; size += 256)
+	{
+		MemoryPool* pool = new MemoryPool(size);
+		_pools.push_back(pool);
+
+		while (tableIndex <= size)
+		{
+			_poolTable[tableIndex] = pool;
+			tableIndex++;
 		}
 	}
 }
@@ -46,15 +66,15 @@ void* Memory::Allocate(int32 size)
 #else
 	if (allocSize > MAX_ALLOC_SIZE)
 	{
-		// ¸Þ¸ð¸® Ç®¸µ ÃÖ´ë Å©¸®¸£ ¹þ¾î³ª¸é ÀÏ¹Ý ÇÒ´ç
+		//  Þ¸  Ç®    Ö´  Å© â¸¦    î³ª    Ï¹   Ò´ 
 		header = reinterpret_cast<MemoryHeader*>(::_aligned_malloc(allocSize, SLIST_ALIGNMENT));
 	}
 	else
 	{
-		// ¸Þ¸ð¸® Ç®¿¡¼­ ²¨³»¿Â´Ù
+		//  Þ¸  Ç®          Â´ 
 		header = _poolTable[allocSize]->Pop();
 	}
-#endif
+#endif	
 
 	return MemoryHeader::AttachHeader(header, allocSize);
 }
@@ -71,14 +91,13 @@ void Memory::Release(void* ptr)
 #else
 	if (allocSize > MAX_ALLOC_SIZE)
 	{
-		// ¸Þ¸ð¸® Ç®¸µ ÃÖ´ë Å©±â¸¦ ¹þ¾î³ª¸é ÀÏ¹Ý ÇØÁ¦
+		//  Þ¸  Ç®    Ö´  Å© â¸¦    î³ª    Ï¹      
 		::_aligned_free(header);
 	}
 	else
 	{
-		// ¸Þ¸ð¸® Ç®¿¡ ¹Ý³³
+		//  Þ¸  Ç®    Ý³  Ñ´ 
 		_poolTable[allocSize]->Push(header);
 	}
-#endif
-	
+#endif	
 }

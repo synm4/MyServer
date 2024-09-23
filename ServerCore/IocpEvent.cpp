@@ -2,8 +2,8 @@
 #include "IocpEvent.h"
 
 /*--------------
-	IocpEvnet
---------------*/
+	IocpEvent
+---------------*/
 
 IocpEvent::IocpEvent(EventType type) : eventType(type)
 {

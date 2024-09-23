@@ -5,11 +5,14 @@
 #include "GameSession.h"
 #include "GameSessionManager.h"
 #include "BufferWriter.h"
-#include "ServerPacketHandler.h"
+#include "ClientPacketHandler.h"
 #include <tchar.h>
+#include "Protocol.pb.h"
 
 int main()
 {
+	ClientPacketHandler::Init();
+
 	ServerServiceRef service = MakeShared<ServerService>(
 		NetAddress(L"127.0.0.1", 7777),
 		MakeShared<IocpCore>(),
@@ -21,27 +24,13 @@ int main()
 	for (int32 i = 0; i < 5; i++)
 	{
 		GThreadManager->Launch([=]()
-		{
-			while (true)
 			{
-				service->GetIocpCore()->Dispatch();
-			}
-		});
-	}
-
-	WCHAR sendData3[900] = L"가가가"; // UTF16 = Unicode (한글/로마 2바이트)
-
-
-	while (true)
-	{
-		vector<BuffData> buffs{ BuffData {100, 1.5f}, BuffData {200, 2.3f},  BuffData {300, 0.7f} };
-		SendBufferRef sendBuffer = ServerPacketHandler::Make_S_TEST(1001, 100, 10, buffs, L"안녕하세요");
-		
-
-		GSessionManager.BroadCast(sendBuffer);
-
-		this_thread::sleep_for(250ms);
-	}
+				while (true)
+				{
+					service->GetIocpCore()->Dispatch();
+				}				
+			});
+	}	
 
 	GThreadManager->Join();
 }

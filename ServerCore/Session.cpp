@@ -7,7 +7,7 @@
 	Session
 ---------------*/
 
-Session::Session()
+Session::Session() : _recvBuffer(BUFFER_SIZE)
 {
 	_socket = SocketUtils::CreateSocket();
 }
@@ -24,7 +24,7 @@ void Session::Send(SendBufferRef sendBuffer)
 
 	bool registerSend = false;
 
-	// 현재 RegisterrSend가 걸리지 않은 상태라면, 걸어준다
+	// 현재 RegisterSend가 걸리지 않은 상태라면, 걸어준다
 	{
 		WRITE_LOCK;
 
@@ -33,8 +33,8 @@ void Session::Send(SendBufferRef sendBuffer)
 		if (_sendRegistered.exchange(true) == false)
 			registerSend = true;
 	}
-
-	if(registerSend)
+	
+	if (registerSend)
 		RegisterSend();
 }
 
@@ -139,12 +139,12 @@ void Session::RegisterRecv()
 	_recvEvent.owner = shared_from_this(); // ADD_REF
 
 	WSABUF wsaBuf;
-	wsaBuf.buf = reinterpret_cast<char*>(_recvBuffer);
-	wsaBuf.len = len32(_recvBuffer);
+	wsaBuf.buf = reinterpret_cast<char*>(_recvBuffer.WritePos());
+	wsaBuf.len = _recvBuffer.FreeSize();
 
 	DWORD numOfBytes = 0;
 	DWORD flags = 0;
-	if (SOCKET_ERROR == ::WSARecv(_socket, &wsaBuf, 1, OUT & numOfBytes, OUT & flags, &_recvEvent, nullptr))
+	if (SOCKET_ERROR == ::WSARecv(_socket, &wsaBuf, 1, OUT &numOfBytes, OUT &flags, &_recvEvent, nullptr))
 	{
 		int32 errorCode = ::WSAGetLastError();
 		if (errorCode != WSA_IO_PENDING)
@@ -173,14 +173,14 @@ void Session::RegisterSend()
 			SendBufferRef sendBuffer = _sendQueue.front();
 
 			writeSize += sendBuffer->WriteSize();
-			// Todo : 예외 체크
+			// TODO : 예외 체크
 
 			_sendQueue.pop();
 			_sendEvent.sendBuffers.push_back(sendBuffer);
 		}
 	}
 
-	// Scatter-Gather (흩어져 있는 데이터를 모아서 한번에 보낸다.)
+	// Scatter-Gather (흩어져 있는 데이터들을 모아서 한 방에 보낸다)
 	Vector<WSABUF> wsaBufs;
 	wsaBufs.reserve(_sendEvent.sendBuffers.size());
 	for (SendBufferRef sendBuffer : _sendEvent.sendBuffers)
@@ -192,7 +192,7 @@ void Session::RegisterSend()
 	}
 
 	DWORD numOfBytes = 0;
-	if (SOCKET_ERROR == ::WSASend(_socket, wsaBufs.data(), static_cast<DWORD>(wsaBufs.size()), OUT & numOfBytes, 0, &_sendEvent, nullptr))
+	if (SOCKET_ERROR == ::WSASend(_socket, wsaBufs.data(), static_cast<DWORD>(wsaBufs.size()), OUT &numOfBytes, 0, &_sendEvent, nullptr))
 	{
 		int32 errorCode = ::WSAGetLastError();
 		if (errorCode != WSA_IO_PENDING)
@@ -239,8 +239,22 @@ void Session::ProcessRecv(int32 numOfBytes)
 		return;
 	}
 
-	// 컨텐츠 코드에서 재정의
-	OnRecv(_recvBuffer, numOfBytes);
+	if (_recvBuffer.OnWrite(numOfBytes) == false)
+	{
+		Disconnect(L"OnWrite Overflow");
+		return;
+	}
+
+	int32 dataSize = _recvBuffer.DataSize();
+	int32 processLen = OnRecv(_recvBuffer.ReadPos(), dataSize); // 컨텐츠 코드에서 재정의
+	if (processLen < 0 || dataSize < processLen || _recvBuffer.OnRead(processLen) == false)
+	{
+		Disconnect(L"OnRead Overflow");
+		return;
+	}
+	
+	// 커서 정리
+	_recvBuffer.Clean();
 
 	// 수신 등록
 	RegisterRecv();
@@ -282,9 +296,9 @@ void Session::HandleError(int32 errorCode)
 	}
 }
 
-/*------------------
+/*-----------------
 	PacketSession
--------------------*/
+------------------*/
 
 PacketSession::PacketSession()
 {
@@ -302,7 +316,7 @@ int32 PacketSession::OnRecv(BYTE* buffer, int32 len)
 	while (true)
 	{
 		int32 dataSize = len - processLen;
-		// 최소한 헤더는 파싱할 수 있는지
+		// 최소한 헤더는 파싱할 수 있어야 한다
 		if (dataSize < sizeof(PacketHeader))
 			break;
 
@@ -310,7 +324,7 @@ int32 PacketSession::OnRecv(BYTE* buffer, int32 len)
 		// 헤더에 기록된 패킷 크기를 파싱할 수 있어야 한다
 		if (dataSize < header.size)
 			break;
-		
+
 		// 패킷 조립 성공
 		OnRecvPacket(&buffer[processLen], header.size);
 

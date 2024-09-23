@@ -4,9 +4,7 @@
 
 void ClientPacketHandler::HandlePacket(BYTE* buffer, int32 len)
 {
-
 	BufferReader br(buffer, len);
-
 	PacketHeader header;
 	br >> header;
 
@@ -16,7 +14,6 @@ void ClientPacketHandler::HandlePacket(BYTE* buffer, int32 len)
 		Handle_S_TEST(buffer, len);
 		break;
 	}
-
 }
 
 // 패킷 설계 TEMP;
@@ -25,53 +22,84 @@ struct BuffData
 	uint64 buffid;
 	float remainTime;
 };
-struct S_TEST
+
+#pragma pack(1)
+// [ PKT_S_TEST ][BuffsListItem BuffsListItem BuffsListItem]
+struct PKT_S_TEST
 {
-	uint64 id;
-	uint32 hp;
-	uint16 attack;
-	vector<int64> buffs;
+	struct BuffsListItem
+	{
+		uint64 buffId;
+		float remainTime;
+	};
+
+	uint16 packetSize; // 공용 헤더
+	uint16 packetId; // 공용 헤더
+	uint64 id; // 8
+	uint32 hp; // 4
+	uint16 attack; // 2
+	uint16 buffsOffset;
+	uint16 buffsCount;
+
+	bool Validate()
+	{
+		uint32 size = 0;
+
+		size += sizeof(PKT_S_TEST);
+		if (packetSize < size) 
+			return false;
+		size += buffsCount * sizeof(BuffsListItem);
+		if (size != packetSize)
+			return false;
+
+		if (buffsOffset + buffsCount * sizeof(BuffsListItem) < packetSize)
+			return false;
+
+		return true;
+	}
+
+	using BuffsList = PacketList<PKT_S_TEST::BuffsListItem>;
+
+	BuffsList GetBuffsList()
+	{
+		BYTE* data = reinterpret_cast<BYTE*>(this);
+		data += buffsOffset;
+		return BuffsList(reinterpret_cast<PKT_S_TEST::BuffsListItem*>(data), buffsCount);
+	}
+
+	//vector<int64> buffs;
+	//wstring name;
 };
+#pragma pack()
 
 
+// [ PKT_S_TEST ][BuffsListItem BuffsListItem BuffsListItem]
 void ClientPacketHandler::Handle_S_TEST(BYTE* buffer, int32 len)
 {
 	BufferReader br(buffer, len);
 
-	PacketHeader header;
-	br >> header;
+	PKT_S_TEST* pkt = reinterpret_cast<PKT_S_TEST*>(buffer);
 
-	uint64 id;
-	uint32 hp;
-	uint16 attack;
-	br >> id >> hp >> attack;
+	if (pkt->Validate() == false)
+		return;
 
-	cout << "ID: " << id << " HP : " << hp << " ATT : " << attack << endl;
+	//cout << "ID: " << id << " HP : " << hp << " ATT : " << attack << endl;
 
-	vector<BuffData> buffs;
-	uint16 buffCount;
-	br >> buffCount;
+	PKT_S_TEST::BuffsList buffs = pkt->GetBuffsList();
 
-	buffs.resize(buffCount);
-	for (int32 i = 0; i < buffCount; i++)
+	cout << "BufCount : " << buffs.Count() << endl;
+	for (int32 i = 0; i < buffs.Count(); i++)
 	{
-		br >> buffs[i].buffid >> buffs[i].remainTime;
+		cout << "BufInfo : " << buffs[i].buffId << " " << buffs[i].remainTime << endl;
 	}
 
-	cout << "BufCount : " << buffCount << endl;
-	for (int32 i = 0; i < buffCount; i++)
+	for (auto it = buffs.begin(); it != buffs.end(); ++it)
 	{
-		cout << "BufInfo : " << buffs[i].buffid << " " << buffs[i].remainTime << endl;
+		cout << "BufInfo : " << it->buffId << " " << it->remainTime << endl;
 	}
 
-	wstring name;
-	uint16 nameLen;
-	br >> nameLen;
-	name.resize(nameLen);
-
-	br.Read((void*)name.data(), nameLen * sizeof(WCHAR));
-
-	wcout.imbue(std::locale("kor"));
-	wcout << name << endl;
-
+	for (auto& buff : buffs)
+	{
+		cout << "BufInfo : " << buff.buffId << " " << buff.remainTime << endl;
+	}
 }

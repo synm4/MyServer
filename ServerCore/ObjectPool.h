@@ -14,8 +14,7 @@ public:
 		Type* memory = static_cast<Type*>(MemoryHeader::AttachHeader(ptr, s_allocSize));
 #else
 		Type* memory = static_cast<Type*>(MemoryHeader::AttachHeader(s_pool.Pop(), s_allocSize));
-#endif
-		
+#endif		
 		new(memory)Type(forward<Args>(args)...); // placement new
 		return memory;
 	}
@@ -28,7 +27,6 @@ public:
 #else
 		s_pool.Push(MemoryHeader::DetachHeader(obj));
 #endif
-		
 	}
 
 	template<typename... Args>

@@ -1,9 +1,10 @@
 #include "pch.h"
 #include "DeadLockProfiler.h"
 
+
 /*--------------------
-   DeadLockProfiler
---------------------*/
+	DeadLockProfiler
+---------------------*/
 
 void DeadLockProfiler::PushLock(const char* name)
 {
@@ -12,14 +13,14 @@ void DeadLockProfiler::PushLock(const char* name)
 	// 아이디를 찾거나 발급한다.
 	int32 lockId = 0;
 
-	auto findIt = _nameTold.find(name);
-	if (findIt == _nameTold.end()) // 없으면 진입 > 양쪽 map에 정보 삽입
+	auto findIt = _nameToId.find(name);
+	if (findIt == _nameToId.end())
 	{
-		lockId = static_cast<int32>(_nameTold.size());
-		_nameTold[name] = lockId;
+		lockId = static_cast<int32>(_nameToId.size());
+		_nameToId[name] = lockId;
 		_idToName[lockId] = name;
 	}
-	else // 있으면 id에 map이 소유하고있는 value를 반환
+	else
 	{
 		lockId = findIt->second;
 	}
@@ -32,15 +33,15 @@ void DeadLockProfiler::PushLock(const char* name)
 		if (lockId != prevId)
 		{
 			set<int32>& history = _lockHistory[prevId];
-			if (history.find(lockId) == history.end()) // 이터레이터가 끝을 반환했다 = 없다
+			if (history.find(lockId) == history.end())
 			{
 				history.insert(lockId);
-				CheckCycle(); // 새로운 간선이 생겼을때
+				CheckCycle();
 			}
 		}
 	}
-	LLockStack.push(lockId);
 
+	LLockStack.push(lockId);
 }
 
 void DeadLockProfiler::PopLock(const char* name)
@@ -49,8 +50,8 @@ void DeadLockProfiler::PopLock(const char* name)
 
 	if (LLockStack.empty())
 		CRASH("MULTIPLE_UNLOCK");
-	
-	int32 lockId = _nameTold[name];
+
+	int32 lockId = _nameToId[name];
 	if (LLockStack.top() != lockId)
 		CRASH("INVALID_UNLOCK");
 
@@ -59,7 +60,7 @@ void DeadLockProfiler::PopLock(const char* name)
 
 void DeadLockProfiler::CheckCycle()
 {
-	const int32 lockCount = static_cast<int32>(_nameTold.size());
+	const int32 lockCount = static_cast<int32>(_nameToId.size());
 	_discoveredOrder = vector<int32>(lockCount, -1);
 	_discoveredCount = 0;
 	_finished = vector<bool>(lockCount, false);
@@ -104,7 +105,7 @@ void DeadLockProfiler::Dfs(int32 here)
 		if (_discoveredOrder[here] < _discoveredOrder[there])
 			continue;
 
-		// 순방향이 아니고 , dfs(there)가 아직 종료하지 않았더라면, there은 here의 선조이다. (역방향간선)
+		// 순방향이 아니고, Dfs(there)가 아직 종료하지 않았다면, there는 here의 선조이다. (역방향 간선)
 		if (_finished[there] == false)
 		{
 			printf("%s -> %s\n", _idToName[here], _idToName[there]);

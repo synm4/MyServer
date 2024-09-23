@@ -1,8 +1,8 @@
 #pragma once
 
-/*-------------------
+/*----------------
 	BufferReader
--------------------*/
+-----------------*/
 
 class BufferReader
 {
@@ -25,7 +25,7 @@ public:
 	bool			Read(void* dest, uint32 len);
 
 	template<typename T>
-	BufferReader& operator>>(OUT T& dest);
+	BufferReader&	operator>>(OUT T& dest);
 
 private:
 	BYTE*			_buffer = nullptr;
@@ -40,4 +40,3 @@ inline BufferReader& BufferReader::operator>>(OUT T& dest)
 	_pos += sizeof(T);
 	return *this;
 }
-

@@ -26,6 +26,7 @@ bool Listener::StartAccept(ServerServiceRef service)
 	_service = service;
 	if (_service == nullptr)
 		return false;
+
 	_socket = SocketUtils::CreateSocket();
 	if (_socket == INVALID_SOCKET)
 		return false;
@@ -82,12 +83,12 @@ void Listener::RegisterAccept(AcceptEvent* acceptEvent)
 	acceptEvent->session = session;
 
 	DWORD bytesReceived = 0;
-	if (false == SocketUtils::AcceptEx(_socket, session->GetSocket(), session->_recvBuffer, 0, sizeof(SOCKADDR_IN) + 16, sizeof(SOCKADDR_IN) + 16, OUT & bytesReceived, static_cast<LPOVERLAPPED>(acceptEvent)))
+	if (false == SocketUtils::AcceptEx(_socket, session->GetSocket(), session->_recvBuffer.WritePos(), 0, sizeof(SOCKADDR_IN) + 16, sizeof(SOCKADDR_IN) + 16, OUT & bytesReceived, static_cast<LPOVERLAPPED>(acceptEvent)))
 	{
 		const int32 errorCode = ::WSAGetLastError();
 		if (errorCode != WSA_IO_PENDING)
 		{
-			// ÀÏ´Ü ´Ù½Ã Accept °É¾îÁØ´Ù
+			//  Ï´   Ù½  Accept  É¾  Ø´ 
 			RegisterAccept(acceptEvent);
 		}
 	}
@@ -113,6 +114,5 @@ void Listener::ProcessAccept(AcceptEvent* acceptEvent)
 
 	session->SetNetAddress(NetAddress(sockAddress));
 	session->ProcessConnect();
-
 	RegisterAccept(acceptEvent);
 }

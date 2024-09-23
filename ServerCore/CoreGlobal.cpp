@@ -6,9 +6,10 @@
 #include "SocketUtils.h"
 #include "SendBuffer.h"
 
-SendBufferManager* GSendBufferManager;
 ThreadManager*		GThreadManager = nullptr;
 Memory*				GMemory = nullptr;
+SendBufferManager*	GSendBufferManager = nullptr;
+
 DeadLockProfiler*	GDeadLockProfiler = nullptr;
 
 class CoreGlobal

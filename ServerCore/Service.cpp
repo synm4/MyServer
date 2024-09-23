@@ -5,9 +5,9 @@
 
 /*-------------
 	Service
--------------*/
+--------------*/
 
-Service::Service(ServiceType type, NetAddress address, IocpCoreRef core, SessionFactory factory, int32 maxSessionCount) 
+Service::Service(ServiceType type, NetAddress address, IocpCoreRef core, SessionFactory factory, int32 maxSessionCount)
 	: _type(type), _netAddress(address), _iocpCore(core), _sessionFactory(factory), _maxSessionCount(maxSessionCount)
 {
 
@@ -19,13 +19,23 @@ Service::~Service()
 
 void Service::CloseService()
 {
-	// Todo
+	// TODO
+}
+
+void Service::Broadcast(SendBufferRef sendBuffer)
+{
+	WRITE_LOCK;
+	for (const auto& session : _sessions)
+	{
+		session->Send(sendBuffer);
+	}
 }
 
 SessionRef Service::CreateSession()
 {
 	SessionRef session = _sessionFactory();
 	session->SetService(shared_from_this());
+
 	if (_iocpCore->Register(session) == false)
 		return nullptr;
 
@@ -46,10 +56,9 @@ void Service::ReleaseSession(SessionRef session)
 	_sessionCount--;
 }
 
-
-/*------------------
+/*-----------------
 	ClientService
--------------------*/
+------------------*/
 
 ClientService::ClientService(NetAddress targetAddress, IocpCoreRef core, SessionFactory factory, int32 maxSessionCount)
 	: Service(ServiceType::Client, targetAddress, core, factory, maxSessionCount)
@@ -60,7 +69,7 @@ bool ClientService::Start()
 {
 	if (CanStart() == false)
 		return false;
-	
+
 	const int32 sessionCount = GetMaxSessionCount();
 	for (int32 i = 0; i < sessionCount; i++)
 	{
@@ -68,13 +77,9 @@ bool ClientService::Start()
 		if (session->Connect() == false)
 			return false;
 	}
+
 	return true;
 }
-
-
-/*------------------
-	ServerService
--------------------*/
 
 ServerService::ServerService(NetAddress address, IocpCoreRef core, SessionFactory factory, int32 maxSessionCount)
 	: Service(ServiceType::Server, address, core, factory, maxSessionCount)
@@ -94,13 +99,12 @@ bool ServerService::Start()
 	if (_listener->StartAccept(service) == false)
 		return false;
 
-
 	return true;
 }
 
 void ServerService::CloseService()
 {
-	// Todo
+	// TODO
 
 	Service::CloseService();
 }

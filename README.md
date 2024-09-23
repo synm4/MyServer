@@ -62,76 +62,41 @@ Windows IOCP, 멀티스레딩, 그리고 Protocol Buffers를 사용하여 효율
  GameServer.cpp 와 DummyClient.cpp 를 동시에 실행하면 됩니다.
 
 ## 프로젝트 구조
- MyServer/
-
- ├── GameServer/                  게임 서버 소스 코드
- 
- │   ├── GameServer.cpp
- 
- │   ├── GameSession.h
- 
- │   ├── GameSession.cpp
- 
- │   ├── GameSessionManager.h
- 
- │   ├── GameSessionManager.cpp
- 
- │   ├── ClientPacketHandler.h
-
- │   ├── ClientPacketHandler.cpp
- 
- │   └── ... (기타 게임 서버 파일)
- 
- ├── DummyClient/                 더미 클라이언트 소스 코드
- 
- │   ├── DummyClient.cpp
- 
- │   ├── ServerPacketHandler.h
- 
- │   ├── ServerPacketHandler.cpp
- 
- │   └── ... (기타 클라이언트 파일)
- 
- ├── ServerCore/                  서버 코어 라이브러리
- 
- │   ├── CorePch.h
- 
- │   ├── CorePch.cpp
- 
- │   ├── IocpCore.h
- 
- │   ├── IocpCore.cpp
- 
- │   ├── Session.h
- 
- │   ├── Session.cpp
- 
- │   └── ... (서버 코어 구성 요소)
- 
- ├── Protocol/                    Protocol Buffers 정의 파일
- 
- │   ├── Protocol.proto
- 
- │   ├── Struct.proto
- 
- │   ├── Enum.proto
- 
- │   ├── 생성된 프로토콜 버퍼 파일 (.pb.h 및 .pb.cc)
- 
- ├── Utils/                       유틸리티 함수와 도구들
- 
- │   ├── BufferReader.h
- 
- │   ├── BufferReader.cpp
- 
- │   ├── BufferWriter.h
- 
- │   ├── BufferWriter.cpp
- 
- │   └── ... (유틸리티 파일)
- 
- └── README.md                    프로젝트 설명 파일
-
+MyServer/
+├── GameServer/                  게임 서버 소스 코드  
+│   ├── GameServer.cpp  
+│   ├── GameSession.h  
+│   ├── GameSession.cpp  
+│   ├── GameSessionManager.h  
+│   ├── GameSessionManager.cpp  
+│   ├── ClientPacketHandler.h  
+│   ├── ClientPacketHandler.cpp  
+│   └── ... (기타 게임 서버 파일)  
+├── DummyClient/                 더미 클라이언트 소스 코드  
+│   ├── DummyClient.cpp  
+│   ├── ServerPacketHandler.h  
+│   ├── ServerPacketHandler.cpp  
+│   └── ... (기타 클라이언트 파일)  
+├── ServerCore/                  서버 코어 라이브러리  
+│   ├── CorePch.h  
+│   ├── CorePch.cpp  
+│   ├── IocpCore.h  
+│   ├── IocpCore.cpp  
+│   ├── Session.h  
+│   ├── Session.cpp  
+│   └── ... (서버 코어 구성 요소)  
+├── Protocol/                    Protocol Buffers 정의 파일  
+│   ├── Protocol.proto  
+│   ├── Struct.proto  
+│   ├── Enum.proto  
+│   ├── 생성된 프로토콜 버퍼 파일 (.pb.h 및 .pb.cc)  
+├── Utils/                       유틸리티 함수와 도구들  
+│   ├── BufferReader.h  
+│   ├── BufferReader.cpp  
+│   ├── BufferWriter.h  
+│   ├── BufferWriter.cpp  
+│   └── ... (유틸리티 파일)  
+└── README.md                    프로젝트 설명 파일  
 
 ## 작동 영상
 
@@ -143,12 +108,3 @@ Windows IOCP, 멀티스레딩, 그리고 Protocol Buffers를 사용하여 효율
 
 프로젝트 링크: https://github.com/synm4/MyServer
 
-
-**참고사항:**
-
-- `[Your Name]`과 `your.email@example.com` 부분을 본인의 이름과 이메일로 변경해주세요.
-- `VIDEO_ID`를 YouTube에 업로드한 영상의 실제 ID로 대체해주세요.
-- 설치 방법이나 사용 방법에 추가로 안내할 내용이 있다면 해당 섹션에 상세히 기재하시면 좋습니다.
-- 프로젝트의 주요 기능이나 기술적인 상세 내용을 추가로 설명하고 싶다면 **프로젝트 특징** 섹션을 확장하실 수 있습니다.
-
-**추가로 도움이 필요하시거나 수정할 내용이 있으시면 언제든지 말씀해주세요!**

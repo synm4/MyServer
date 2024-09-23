@@ -11,7 +11,6 @@ Windows IOCP, 멀티스레딩, 그리고 Protocol Buffers를 사용하여 효율
 - [사용 방법](#사용-방법)
 - [프로젝트 구조](#프로젝트-구조)
 - [작동 영상](#작동-영상)
-- [라이선스](#라이선스)
 - [문의](#문의)
 
 ## 프로젝트 특징
@@ -63,50 +62,46 @@ Windows IOCP, 멀티스레딩, 그리고 Protocol Buffers를 사용하여 효율
  GameServer.cpp 와 DummyClient.cpp 를 동시에 실행하면 됩니다.
 
 ## 프로젝트 구조
-MyServer/
-├── GameServer/                  게임 서버 소스 코드
+ MyServer/
 
-│   ├── GameServer.cpp
-
-│   ├── GameSession.h
-
-│   ├── GameSession.cpp
-
-│   ├── GameSessionManager.h
-│   ├── GameSessionManager.cpp
-│   ├── ClientPacketHandler.h
-│   ├── ClientPacketHandler.cpp
-│   └── ... (기타 게임 서버 파일)
-├── DummyClient/                 더미 클라이언트 소스 코드
-│   ├── DummyClient.cpp
-│   ├── ServerPacketHandler.h
-│   ├── ServerPacketHandler.cpp
-│   └── ... (기타 클라이언트 파일)
-├── ServerCore/                  서버 코어 라이브러리
-│   ├── CorePch.h
-│   ├── CorePch.cpp
-│   ├── IocpCore.h
-│   ├── IocpCore.cpp
-│   ├── Session.h
-│   ├── Session.cpp
-│   └── ... (서버 코어 구성 요소)
-├── Protocol/                    Protocol Buffers 정의 파일
-│   ├── Protocol.proto
-│   ├── Struct.proto
-│   ├── Enum.proto
-│   ├── 생성된 프로토콜 버퍼 파일 (.pb.h 및 .pb.cc)
-├── Utils/                       유틸리티 함수와 도구들
-│   ├── BufferReader.h
-│   ├── BufferReader.cpp
-│   ├── BufferWriter.h
-│   ├── BufferWriter.cpp
-│   └── ... (유틸리티 파일)
-└── README.md                    프로젝트 설명 파일
+ ├── GameServer/                  게임 서버 소스 코드
+ │   ├── GameServer.cpp
+ │   ├── GameSession.h
+ │   ├── GameSession.cpp
+ │   ├── GameSessionManager.h
+ │   ├── GameSessionManager.cpp
+ │   ├── ClientPacketHandler.h
+ │   ├── ClientPacketHandler.cpp
+ │   └── ... (기타 게임 서버 파일)
+ ├── DummyClient/                 더미 클라이언트 소스 코드
+ │   ├── DummyClient.cpp
+ │   ├── ServerPacketHandler.h
+ │   ├── ServerPacketHandler.cpp
+ │   └── ... (기타 클라이언트 파일)
+ ├── ServerCore/                  서버 코어 라이브러리
+ │   ├── CorePch.h
+ │   ├── CorePch.cpp
+ │   ├── IocpCore.h
+ │   ├── IocpCore.cpp
+ │   ├── Session.h
+ │   ├── Session.cpp
+ │   └── ... (서버 코어 구성 요소)
+ ├── Protocol/                    Protocol Buffers 정의 파일
+ │   ├── Protocol.proto
+ │   ├── Struct.proto
+ │   ├── Enum.proto
+ │   ├── 생성된 프로토콜 버퍼 파일 (.pb.h 및 .pb.cc)
+ ├── Utils/                       유틸리티 함수와 도구들
+ │   ├── BufferReader.h
+ │   ├── BufferReader.cpp
+ │   ├── BufferWriter.h
+ │   ├── BufferWriter.cpp
+ │   └── ... (유틸리티 파일)
+ └── README.md                    프로젝트 설명 파일
 
 ## 작동 영상
 
-  프로젝트의 작동 영상을 확인하려면 아래 링크를 클릭하세요:
-  [유튜브](https://youtu.be/nMi-CTqovKk)
+  [프로젝트의 작동 영상을 확인하려면 클릭하세요](https://youtu.be/nMi-CTqovKk)
 
 ##  문의
 

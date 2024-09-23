@@ -101,7 +101,7 @@ MyServer/
 ## 작동 영상
 
   [프로젝트의 작동 영상을 확인하려면 클릭하세요](https://youtu.be/nMi-CTqovKk)
-
+[![Video Label](http://img.youtube.com/vi/uLR1RNqJ1Mw/0.jpg)](https://youtu.be/nMi-CTqovKk)
 ##  문의
 
 [김영우] - synm4@naver.com

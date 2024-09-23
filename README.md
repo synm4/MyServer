@@ -65,39 +65,73 @@ Windows IOCP, 멀티스레딩, 그리고 Protocol Buffers를 사용하여 효율
  MyServer/
 
  ├── GameServer/                  게임 서버 소스 코드
+ 
  │   ├── GameServer.cpp
+ 
  │   ├── GameSession.h
+ 
  │   ├── GameSession.cpp
+ 
  │   ├── GameSessionManager.h
+ 
  │   ├── GameSessionManager.cpp
+ 
  │   ├── ClientPacketHandler.h
+
  │   ├── ClientPacketHandler.cpp
+ 
  │   └── ... (기타 게임 서버 파일)
+ 
  ├── DummyClient/                 더미 클라이언트 소스 코드
+ 
  │   ├── DummyClient.cpp
+ 
  │   ├── ServerPacketHandler.h
+ 
  │   ├── ServerPacketHandler.cpp
+ 
  │   └── ... (기타 클라이언트 파일)
+ 
  ├── ServerCore/                  서버 코어 라이브러리
+ 
  │   ├── CorePch.h
+ 
  │   ├── CorePch.cpp
+ 
  │   ├── IocpCore.h
+ 
  │   ├── IocpCore.cpp
+ 
  │   ├── Session.h
+ 
  │   ├── Session.cpp
+ 
  │   └── ... (서버 코어 구성 요소)
+ 
  ├── Protocol/                    Protocol Buffers 정의 파일
+ 
  │   ├── Protocol.proto
+ 
  │   ├── Struct.proto
+ 
  │   ├── Enum.proto
+ 
  │   ├── 생성된 프로토콜 버퍼 파일 (.pb.h 및 .pb.cc)
+ 
  ├── Utils/                       유틸리티 함수와 도구들
+ 
  │   ├── BufferReader.h
+ 
  │   ├── BufferReader.cpp
+ 
  │   ├── BufferWriter.h
+ 
  │   ├── BufferWriter.cpp
+ 
  │   └── ... (유틸리티 파일)
+ 
  └── README.md                    프로젝트 설명 파일
+
 
 ## 작동 영상
 

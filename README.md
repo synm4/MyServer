@@ -62,7 +62,7 @@ Windows IOCP, 멀티스레딩, 그리고 Protocol Buffers를 사용하여 효율
  GameServer.cpp 와 DummyClient.cpp 를 동시에 실행하면 됩니다.
 
 ## 프로젝트 구조
-MyServer/
+MyServer/  
 ├── GameServer/                  게임 서버 소스 코드  
 │   ├── GameServer.cpp  
 │   ├── GameSession.h  

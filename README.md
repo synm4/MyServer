@@ -65,9 +65,13 @@ Windows IOCP, 멀티스레딩, 그리고 Protocol Buffers를 사용하여 효율
 ## 프로젝트 구조
 MyServer/
 ├── GameServer/                  게임 서버 소스 코드
+
 │   ├── GameServer.cpp
+
 │   ├── GameSession.h
+
 │   ├── GameSession.cpp
+
 │   ├── GameSessionManager.h
 │   ├── GameSessionManager.cpp
 │   ├── ClientPacketHandler.h
@@ -102,7 +106,7 @@ MyServer/
 ## 작동 영상
 
   프로젝트의 작동 영상을 확인하려면 아래 링크를 클릭하세요:
-  [[작동 영상 링크](https://youtu.be/nMi-CTqovKk)]()
+  [유튜브](https://youtu.be/nMi-CTqovKk)
 
 ##  문의
 
